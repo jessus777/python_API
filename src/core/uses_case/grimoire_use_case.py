@@ -4,8 +4,8 @@ from src.core.repositories.grimoire_repository import InterfaceGrimoireRepositor
 from typing import List
 
 class GrimoireUsesCase:
-    def __init__(self):
-        pass
+    def __init__(self, grimoire_repository: InterfaceGrimoireRepository):
+        self.grimoire_repository = grimoire_repository
     
     def get_grimoires_all(self, db: Session) -> List[Grimoire]:
         try:

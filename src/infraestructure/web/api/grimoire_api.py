@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from core.uses_case.grimoire_use_case import GrimoireUsesCase
-from infraestructure.database import get_db
+from src.core.uses_case.grimoire_use_case import GrimoireUsesCase
 
 grimoire_route = APIRouter()
 grimoire_use_case = GrimoireUsesCase()

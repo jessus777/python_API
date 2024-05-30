@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.infraestructure.web.api.request_api import grimoire_route
+from src.infraestructure.web.api.grimoire_api import grimoire_route
 
 app = FastAPI()
 
