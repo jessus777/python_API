@@ -13,4 +13,4 @@ class GrimoireUsesCase:
             return grimoires
         except Exception as e:
             print(f"Error al obtener los grimorios: {e}")
-            return []
+         

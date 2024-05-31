@@ -5,8 +5,8 @@ from src.infraestructure.database import SessionLocal
 from typing import Optional, List
 
 class GrimoireRepository(InterfaceGrimoireRepository):
-    def __init__(self, session: Session = SessionLocal):
-        self.session = session
+    def __init__(self, session: Optional[Session] = None):
+        self.session = session or SessionLocal()
 
     def _handle_error(self, operation: str, error: Exception) -> None:
         print(f"Error al {operation}: {error}")
@@ -30,7 +30,9 @@ class GrimoireRepository(InterfaceGrimoireRepository):
     
     def get_all(self) -> List[Grimoire]:
         try:
-            return self.session.query(Grimoire).all()
+            grimoires = self.session.query(Grimoire).all()
+            print(f"Grimoires in database: {grimoires}")
+            return grimoires
         except Exception as e:
             self._handle_error("obtener todos los grimorios", e)
             return []
